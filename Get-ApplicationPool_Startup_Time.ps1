@@ -1,0 +1,1 @@
+﻿Get-WmiObject Win32_Process -Filter "name = 'w3wp.exe'" | Select-Object @{"name"="ApplicationPool";expression={(($_).CommandLine).split('"')[1] }},@{"name"="Starttime";expression={$_.ConvertToDateTime($_.CreationDate)}}
